@@ -10,6 +10,9 @@ namespace CodingLibrary.Resistors
 
         public decimal Tolerance { get; set; }
 
+        /// <summary>
+        /// Displays the formated ohms ie. "1.5M Ω +/- 1%"
+        /// </summary>
         public String FormattedOhms
         {
             get
@@ -26,7 +29,11 @@ namespace CodingLibrary.Resistors
 
             }
         }
-
+        /// <summary>
+        /// Overloads the Equals for use in the Unit Tests.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is Ohm ohms)

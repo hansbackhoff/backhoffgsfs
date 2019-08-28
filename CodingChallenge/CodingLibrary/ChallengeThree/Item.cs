@@ -65,6 +65,10 @@ namespace CodingLibrary.ChallengeThree
 
             return subItemSummary.ToArray();
         }
+        /// <summary>
+        /// Creates a list of items without subitems.
+        /// </summary>
+        /// <returns></returns>
         private static List<Item> GetStaticSubItems()
         {
             List<Item> items = new List<Item>();
@@ -74,6 +78,10 @@ namespace CodingLibrary.ChallengeThree
             items.Add(new Item() { Number = "4" });
             return items;
         }
+        /// <summary>
+        /// Creates a list of items with subitems
+        /// </summary>
+        /// <returns></returns>
         private IEnumerable<Item> GetSubItems()
         {
             List<Item> items = new List<Item>();
@@ -84,6 +92,12 @@ namespace CodingLibrary.ChallengeThree
             return items;
         }
 
+        /// <summary>
+        /// tansforms the list of subtimes into a summary
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="p"></param>
+        /// <returns></returns>
         private IEnumerable<SubItemSummary> TransformSubItems(Item item, IEnumerable<Item> p)
         {
             List<SubItemSummary> summaries = new List<SubItemSummary>();
@@ -95,12 +109,22 @@ namespace CodingLibrary.ChallengeThree
             return summaries;
         }
 
+        /// <summary>
+        /// gets the sub items for an item
+        /// </summary>
+        /// <param name="itemNumber"></param>
+        /// <returns></returns>
         private IEnumerable<Item> GetSubItems(string itemNumber)
         {
             return Items.Find(x => x.Number.CompareTo(itemNumber) == 0).Items;
 
 
         }
+        /// <summary>
+        /// Overloads for easy comparison.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is Item item)
@@ -117,6 +141,9 @@ namespace CodingLibrary.ChallengeThree
             return false;
         }
     }
+    /// <summary>
+    /// Class to contain the sub item summary
+    /// </summary>
     public class SubItemSummary
     {
         public Item Parent { get; set; }

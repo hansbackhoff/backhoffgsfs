@@ -25,7 +25,11 @@ namespace CodingLibrary.Resistors
             Add(new ResistorColor("Silver", -1, 0.01m, 0.1m));
             Add(new ResistorColor("Gold", -1, 0.1m, 0.05m));
         }
-
+        /// <summary>
+        /// Gets a <see cref="ResistorColor"/> based on the color name.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public ResistorColor GetByColor(String color)
         {
             foreach (ResistorColor item in this)
@@ -38,6 +42,14 @@ namespace CodingLibrary.Resistors
             throw new Exception("Invalid color selection.");
         }
 
+        /// <summary>
+        /// Calculates the actual ohms for a resitor
+        /// </summary>
+        /// <param name="one">Band A Color</param>
+        /// <param name="two">Band B Color</param>
+        /// <param name="three">Band C Color</param>
+        /// <param name="four">Band D Color</param>
+        /// <returns></returns>
         public Ohm CalculateOhms(ResistorColor one, ResistorColor two, ResistorColor three, ResistorColor four)
         {
             //check if the first 2 colors are used for significance figures
